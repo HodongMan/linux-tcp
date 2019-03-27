@@ -10,8 +10,12 @@ class TCPNetworkManager
 
 	bool open( void ) noexcept;
 	
-	bool setAddress( char* hostName, char* sname, char* protocol ) noexcept;
+	bool setAddress( const char* hostName, const char* sname, const char* protocol ) noexcept;
 	bool isValid( void ) const noexcept;
+
+	void run( void ) noexcept;
+
+	void connect( SOCKET s, struct sockaddr_in* peer ) noexcept;
 
     private:
 	SOCKET _socket;
